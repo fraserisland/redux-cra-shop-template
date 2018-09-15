@@ -7,6 +7,14 @@ const sort = (items) => {
     })
 }
 
+const cartTotal = (cart) => {
+    let total = 0
+    cart.map((item) => {
+        total += (item.price * item.quantity)
+    })
+    return total
+}
+
 const Cart = (props) => {
     return (
         <div>
@@ -17,7 +25,7 @@ const Cart = (props) => {
                         <div key={item.id}>
                             <p> {item.name} </p>
                             <p> {item.quantity} </p>
-                            <p> {item.price} </p>
+                            <p> ${item.price} </p>
                             <button
                             onClick={() => props.addToCart(item)}
                             > + 
@@ -33,8 +41,9 @@ const Cart = (props) => {
                         </div>
                     ))
                     :
-                    <p> NO ITEMS IN CART </p>
+                    <p>NO ITEMS IN CART</p>
                 }
+                <p>total: ${cartTotal(props.cart)}</p>
             </div>
         </div>
     )

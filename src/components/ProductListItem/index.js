@@ -22,11 +22,9 @@ const ProductListItem = (props) => {
             />
             {
                 props.cartItem &&
-                <RemoveBtn 
-                    cartItem={props.cartItem} 
-                    product={props.product}
-                    removeFromCart={props.removeFromCart} 
-                />
+                <div>
+                    <p> quantity: {props.cartItem.quantity} </p>
+                </div>
             }
         </div>
      );
